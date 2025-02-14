@@ -1,6 +1,12 @@
 {
   "version": 2,
-  "builds": [{ "src": "/server.js", "use": "@vercel/node" }],
+  "builds": [{ "src": "/server.js", "use": "@vercel/node", "config": {
+        "maxDuration": 60, // Maximum timeout for Pro plan (60 seconds)
+        "memory": 3008, // Maximum memory for Pro plan (3008 MB)
+        "maxBodySize": "4.5mb" // Maximum payload size (4.5 MB)
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
