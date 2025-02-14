@@ -2,10 +2,12 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
+const allowedOrigins = process.env.FRONTEND_URL.split(",");
+
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || process.env.FRONTEND_URL.includes(origin)) {
+      if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
@@ -13,6 +15,7 @@ app.use(
     },
     methods: "GET, POST, PUT, DELETE, OPTIONS",
     allowedHeaders: "Content-Type, Authorization",
+    credentials: true, // <-- Ensure credentials are handled properly
   })
 );
 
