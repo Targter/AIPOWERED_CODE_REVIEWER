@@ -6,7 +6,7 @@ const allowedOrigins = process.env.FRONTEND_URL.split(",");
 
 app.use(
   cors({
-   origin: 'https://aipowered-code-reviewer.vercel.app/', // Replace with your frontend domain
+   origin: 'https://aipowered-code-reviewer.vercel.app', // Replace with your frontend domain
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   })
