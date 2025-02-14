@@ -47,13 +47,12 @@ const Navbar = ({ setSelectedLanguagefinal }) => {
                 value={selectedLanguage}
                 onChange={handleLanguageChange}
               >
-                <option value="javascript">Select your language</option>
+                <option value="select language">Select your language</option>
                 <option value="javascript">JavaScript</option>
                 <option value="python">Python</option>
                 <option value="cpp">C++</option>
                 <option value="c">C</option>
-                <option value="c">java</option>
-                <option value="c">C</option>
+                <option value="java">JAVA</option>
                 <option value="rust">Rust</option>
               </select>
             </div>
