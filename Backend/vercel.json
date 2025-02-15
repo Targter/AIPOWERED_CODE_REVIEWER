@@ -9,10 +9,8 @@
     }
   ],
   "functions": {
-    "*.js": {
+    "**/*.js": {
       "maxDuration": 60
-    },"src/controllers/ai.controller.js": {
-      "maxDuration": 30
-    },
+    }
   }
 }
