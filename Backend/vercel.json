@@ -9,7 +9,7 @@
     }
   ],
   "functions": {
-    "server.js": {
+    "*.js": {
       "maxDuration": 60
     }
   }
