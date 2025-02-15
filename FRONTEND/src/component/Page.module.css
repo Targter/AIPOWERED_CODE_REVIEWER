@@ -39,16 +39,19 @@ main .right {
 main .left {
   background-color: #000000;
   position: relative;
+  rounded: 0.7rem;
+  overflow: hidden;
 }
 
 .left .code,
 .code pre,
 .code pre code {
-  height: 100%;
+  height: 100%; /* Set a fixed height (e.g., 80% of the viewport height) */
   width: 100%;
   margin: 0;
   border-radius: 0.7rem;
   background-color: #0c0c0c;
+  overflow: auto;
 }
 
 main .left .review {
@@ -68,7 +71,10 @@ main .right {
   background-color: #343434;
   padding: 1rem 2rem;
   font-size: 1.5rem;
-  overflow: auto;
+  overflow-y: auto;
+  font-weight: 200;
+  line-height: 2;
+  font-size: 1rem;
 }
 
 a {

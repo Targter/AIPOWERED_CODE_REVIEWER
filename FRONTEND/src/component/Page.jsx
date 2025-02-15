@@ -28,11 +28,13 @@ const Page = ({ selectedLanguage }) => {
       return;
     }
     setLoading(true);
+    setReview("Loading....."); // Clear previous review
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/get-response`, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}`, {
         prompt,
         selectedLanguage,
       });
+      console.log("response", response.data);
       if (Array.isArray(response.data)) {
         const reviewString = response.data.join("\n"); // Join array elements with newlines
         setReview(reviewString);
@@ -67,11 +69,11 @@ const Page = ({ selectedLanguage }) => {
             padding={10}
             style={{
               fontFamily: '"Fira code", "Fira Mono", monospace',
-              fontSize: 16,
+              fontSize: 18,
               border: "1px solid #ddd",
               borderRadius: "5px",
-              height: "100%",
-              width: "100%",
+              overflow: "auto",
+              padding: "20px",
             }}
           />
         </div>
@@ -79,14 +81,20 @@ const Page = ({ selectedLanguage }) => {
           onClick={reviewCode}
           className={styles.review}
           disabled={loading}
+          style={{
+            padding: "5px 12px",
+            bottom: "10px",
+            right: "30px",
+            background: "red",
+          }}
         >
           {loading ? (
-            <div className={styles.loadingAnimation}>
+            <div className="w-full h-[100%] ">
               {/* Add your loading animation here */}
               <span>Loading...</span>
             </div>
           ) : (
-            "Review"
+            <span>Review Code</span>
           )}
         </button>
       </div>
