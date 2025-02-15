@@ -7,9 +7,5 @@
       "dest": "/server.js",
       "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
     }
-  ],  "functions": {
-    "server": {
-      "maxDuration": 60
-    }
-  }
+  ]
 }
