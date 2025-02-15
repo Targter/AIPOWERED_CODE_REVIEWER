@@ -23,7 +23,7 @@ const Navbar = ({ setSelectedLanguagefinal }) => {
 
   return (
     <div className="w-full bg-gray-800 h-10 flex justify-around items-center">
-      <h2 className="text-white text-center text-xl">Ab Code Reviewer</h2>
+      <h2 className="text-white text-center text-xl">Code Reviewer</h2>
       <button
         className="text-sm"
         style={{ fontSize: "12px" }}
@@ -47,12 +47,14 @@ const Navbar = ({ setSelectedLanguagefinal }) => {
                 value={selectedLanguage}
                 onChange={handleLanguageChange}
               >
-                <option value="select language">Select your language</option>
+                <option value="Choose your language">
+                  Choose Your Language
+                </option>
                 <option value="javascript">JavaScript</option>
                 <option value="python">Python</option>
                 <option value="cpp">C++</option>
                 <option value="c">C</option>
-                <option value="java">JAVA</option>
+                <option value="Java">java</option>
                 <option value="rust">Rust</option>
               </select>
             </div>

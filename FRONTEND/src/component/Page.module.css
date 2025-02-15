@@ -34,7 +34,6 @@ main .right {
   width: 48%;
   flex-basis: 50%;
   border-radius: 0.7rem;
-  overflow-y:scroll;
 }
 
 main .left {

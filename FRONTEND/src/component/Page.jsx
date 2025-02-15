@@ -29,11 +29,17 @@ const Page = ({ selectedLanguage }) => {
     }
     setLoading(true);
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/get-response`, {
+      const response = await axios.post(import.meta.env.VITE_BACKEND_URL, {
         prompt,
         selectedLanguage,
       });
-      setReview(response.data);
+      if (Array.isArray(response.data)) {
+        const reviewString = response.data.join("\n"); // Join array elements with newlines
+        setReview(reviewString);
+      } else {
+        console.error("Invalid response format:", response.data);
+        setReview("Error: Invalid response format from the server.");
+      }
     } catch (error) {
       console.error("Error fetching review:", error);
       alert("An error occurred while fetching the review.");
