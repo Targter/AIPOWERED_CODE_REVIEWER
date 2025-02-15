@@ -1,12 +1,6 @@
 {
   "version": 2,
-  "builds": [{ "src": "/server.js", "use": "@vercel/node", "config": {
-        "maxDuration": 60, 
-        "memory": 3008, 
-        "maxBodySize": "4.5mb"
-      }
-    }
-  ],
+  "builds": [{ "src": "/server.js", "use": "@vercel/node" }],
   "routes": [
     {
       "src": "/(.*)",

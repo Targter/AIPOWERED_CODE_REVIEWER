@@ -90,13 +90,13 @@ async function generateContent(prompt) {
       contents: [{ role: "user", parts: [{ text: prompt }] }],
     });
 
-   const responseText = result.response.text();
+    const responseText = result.response.text();
 
     // Split the response into chunks (e.g., 1000 characters per chunk)
     const chunkSize = 1000;
     const chunks = [];
     for (let i = 0; i < responseText.length; i += chunkSize) {
-      console.log("chunks:",chunks);
+      // console.log("chunks:", chunks);
       chunks.push(responseText.slice(i, i + chunkSize));
     }
 

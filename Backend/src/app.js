@@ -2,19 +2,22 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-const allowedOrigins = process.env.FRONTEND_URL.split(",");
-
 app.use(
   cors({
-   origin: 'https://aipowered-code-reviewer.vercel.app', // Replace with your frontend domain
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: (origin, callback) => {
+      if (!origin || process.env.FRONTEND_URL.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: "GET, POST, PUT, DELETE, OPTIONS",
+    allowedHeaders: "Content-Type, Authorization",
   })
 );
 
-app.use(express.json({ limit: "50mb" })); // Increase limit for JSON payloads
-app.use(express.urlencoded({ limit: "50mb", extended: true })); // Increase limit for URL-encoded data
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.send("Hello World!"); // Send a response to the client
