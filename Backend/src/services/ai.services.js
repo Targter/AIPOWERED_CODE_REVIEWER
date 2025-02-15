@@ -96,6 +96,7 @@ async function generateContent(prompt) {
     const chunkSize = 1000;
     const chunks = [];
     for (let i = 0; i < responseText.length; i += chunkSize) {
+      console.log("chunks:",chunks);
       chunks.push(responseText.slice(i, i + chunkSize));
     }
 
