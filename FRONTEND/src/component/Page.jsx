@@ -30,7 +30,7 @@ const Page = ({ selectedLanguage }) => {
     setLoading(true);
     setReview("Loading....."); // Clear previous review
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}`, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/get-response`, {
         prompt,
         selectedLanguage,
       });
