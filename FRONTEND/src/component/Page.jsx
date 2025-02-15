@@ -29,7 +29,7 @@ const Page = ({ selectedLanguage }) => {
     }
     setLoading(true);
     try {
-      const response = await axios.post(import.meta.env.VITE_BACKEND_URL, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/get-response`, {
         prompt,
         selectedLanguage,
       });
