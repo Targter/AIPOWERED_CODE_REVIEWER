@@ -8,4 +8,10 @@
       "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
     }
   ]
+,
+  "functions": {
+    "server.js": {
+      "maxDuration": 60
+    }
+  }
 }
