@@ -90,7 +90,16 @@ async function generateContent(prompt) {
       contents: [{ role: "user", parts: [{ text: prompt }] }],
     });
 
-    return result.response.text();
+   const responseText = result.response.text();
+
+    // Split the response into chunks (e.g., 1000 characters per chunk)
+    const chunkSize = 1000;
+    const chunks = [];
+    for (let i = 0; i < responseText.length; i += chunkSize) {
+      chunks.push(responseText.slice(i, i + chunkSize));
+    }
+
+    return chunks;
   } catch (error) {
     console.error("Error generating content:", error.message);
     return "Error generating content. Please try again.";
