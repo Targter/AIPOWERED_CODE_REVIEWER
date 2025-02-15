@@ -8,9 +8,5 @@
       "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
     }
   ],
-  "functions": {
-    "**/*.js": {
-      "maxDuration": 60
-    }
-  }
+ 
 }
